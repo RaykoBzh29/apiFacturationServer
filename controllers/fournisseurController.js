@@ -28,7 +28,6 @@ Fournisseur.newFournisseur = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
             fournisseur.fournisseurId,
-            fournisseur.factureId,
             fournisseur.fournisseurName,
             fournisseur.adresse,
             fournisseur.telephone,
@@ -38,7 +37,7 @@ Fournisseur.newFournisseur = () =>{
             fournisseur.swiftCode,
             fournisseur.ibanNum,
         ];
-        const query = 'INSERT INTO invoice (fournisseurId, factureId, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO invoice (fournisseurId, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
         db.query(query, params, (err, res) => {
           if (err) return reject(err);
           resolve(res);
@@ -51,7 +50,7 @@ Fournisseur.updateFournisseur = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
             fournisseur.fournisseurId,
-            fournisseur.factureId,
+
             fournisseur.fournisseurName,
             fournisseur.adresse,
             fournisseur.telephone,
@@ -61,7 +60,7 @@ Fournisseur.updateFournisseur = () =>{
             fournisseur.swiftCode,
             fournisseur.ibanNum,
         ];
-        'UPDATE fournisseur SET fournisseurId = ?, factureId = ?, fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE id = ?';
+        'UPDATE fournisseur SET fournisseurId = ?, fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
           if (err) return reject(err);
           resolve(res);

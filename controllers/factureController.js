@@ -7,6 +7,7 @@ let Facture = {};
 Facture.newFacture = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
+            facture.factureId,
             facture.factureNum,
             facture.date,
             facture.commandeNum,
@@ -16,7 +17,7 @@ Facture.newFacture = () =>{
             facture.prixTtc,
             facture.etat,
         ];
-        const query = 'INSERT INTO invoice (facture_num, date, commandeNum , fournisseurId, prixHt, taxe, prixTtc, etat) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO invoice (factureId, facture_num, date, commandeNum , fournisseurId, prixHt, taxe, prixTtc, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
         db.query(query, params, (err, res) => {
           if (err) return reject(err);
           resolve(res);
@@ -57,7 +58,7 @@ Facture.updateFacture = () =>{
             facture.prixTtc,
             facture.etat,
         ];
-        'UPDATE facture SET facture_num = ?, date = ?, commandeNum = ?, fournisseurId = ?, prixHt = ?, taxe = ?, prixTtc = ?, etat = ? WHERE id = ?';
+        'UPDATE facture SET factureId = ?, facture_num = ?, date = ?, commandeNum = ?, fournisseurId = ?, prixHt = ?, taxe = ?, prixTtc = ?, etat = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
           if (err) return reject(err);
           resolve(res);

@@ -4,7 +4,7 @@ const factureRouter = express.Router();
 
 const Facture = require('../controllers/factureController.js');
 
-/*ajout d'une facture dans la base de donnée */
+/*route qui permet l'ajout d'une facture dans la base de donnée */
 factureRouter.post('/', async (req, res) => {
     try {
       const facture = req.body;
@@ -16,7 +16,7 @@ factureRouter.post('/', async (req, res) => {
     }
   });
 
-/* lecture de toutes les facture de la base de donéne*/
+/* route qui permet la lecture de toutes les facture de la base de donéne*/
 factureRouter.get('/', async (req, res) => {
     try {
       let result = await Facture.findAllFactures();
@@ -28,7 +28,7 @@ factureRouter.get('/', async (req, res) => {
   });
 
 
-/*lecture d'une facture dans la base de donnée*/
+/* route qui permet la lecture d'une facture spécifique dans la base de donnée*/
   factureRouter.get('/:id', async (req, res) => {
     try {
       let result = await Facture.findOneFacture(req.params.id);
@@ -39,7 +39,7 @@ factureRouter.get('/', async (req, res) => {
     }
   });
 
-  /*mise à jour d'une facture dans la basse de donnée */
+  /*route qui permet la mise à jour d'une facture dans la basse de donnée */
 factureRouter.put('/:id', async (req, res) => {
   try {
     const facture = req.body;
@@ -51,7 +51,7 @@ factureRouter.put('/:id', async (req, res) => {
   }
 });
 
-  /* suppression d'une facture dans la base de donnée */
+  /*route qui permet la suppression d'une facture dans la base de donnée */
 factureRouter.delete('/:id', async (req, res) => {
     try {
       let result = await Facture.deleteFacture(req.params.id);

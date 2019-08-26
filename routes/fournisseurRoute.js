@@ -5,7 +5,7 @@ const fournisseurRouter = express.Router();
 const Fournisseur = require('../controllers/fournisseurController.js');
 
 
-/*lecture de tout les fournisseur dans la base de donnée*/
+/*route qui permet la lecture de tout les fournisseur dans la base de donnée*/
 fournisseurRouter.get('/', async (req, res) => {
     try {
       let result = await Fournisseur.findAllFournisseur();
@@ -17,7 +17,7 @@ fournisseurRouter.get('/', async (req, res) => {
   });
 
 
-/*lecture d'une fournisseur dans la base de donnée*/
+/*route qui permet la lecture d'une fournisseur dans la base de donnée*/
   fournisseurRouter.get('/:id', async (req, res) => {
     try {
       let result = await Fournisseur.findOneFournisseur(req.params.id);
@@ -28,7 +28,7 @@ fournisseurRouter.get('/', async (req, res) => {
     }
   });
 
-/*ajout d'une fournisseur dans la base de donnée */
+/*route qui permet l'ajout d'une fournisseur dans la base de donnée */
 fournisseurRouter.post('/', async (req, res) => {
     try {
       const fournisseur = req.body;
@@ -40,7 +40,7 @@ fournisseurRouter.post('/', async (req, res) => {
     }
   });
 
-  /*mise à jour d'une fournisseur dans la basse de donnée */
+  /*route qui permet la mise à jour d'une fournisseur dans la basse de donnée */
 fournisseurRouter.put('/:id', async (req, res) => {
     try {
       const fournisseur = req.body;
@@ -52,7 +52,7 @@ fournisseurRouter.put('/:id', async (req, res) => {
     }
   });
 
-  /* suppression d'une fournisseur dans la base de donnée */
+  /*route qui permet la suppression d'une fournisseur dans la base de donnée */
 fournisseurRouter.delete('/:id', async (req, res) => {
     try {
       let result = await Fournisseur.deleteFournisseur(req.params.id);

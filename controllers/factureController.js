@@ -7,15 +7,15 @@ let Factures = {};
 Factures.newFacture = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
-            facture.factureId,
-            facture.factureNum,
-            facture.date,
-            facture.commandeNum,
-            facture.fournisseurId,
-            facture.prixHt,
-            facture.taxe,
-            facture.prixTtc,
-            facture.etat,
+            factures.factureId,
+            factures.factureNum,
+            factures.date,
+            factures.commandeNum,
+            factures.fournisseurId,
+            factures.prixHt,
+            factures.taxe,
+            factures.prixTtc,
+            factures.etat,
         ];
         const query = 'INSERT INTO facture (factureId, factureNum, date, commandeNum, prixHt, taxe, etat, fournisseurId,) VALUES (?, ?, ?, ?, ?, ?, ?, ?,)';
         db.query(query, params, (err, res) => {
@@ -49,14 +49,14 @@ Factures.findAllFacture = () => {
 Factures.updateFacture = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
-            facture.factureId,
-            facture.factureNum,
-            facture.date,
-            facture.commandeNum,
-            facture.prixHt,
-            facture.taxe,
-            facture.etat,
-            facture.fournisseurId,
+            factures.factureId,
+            factures.factureNum,
+            factures.date,
+            factures.commandeNum,
+            factures.prixHt,
+            factures.taxe,
+            factures.etat,
+            factures.fournisseurId,
         ];
         'UPDATE facture SET factureId = ?, factureNum = ?, date = ?, commandeNum = ?, prixHt = ?, taxe = ?, etat = ?, fournisseurId = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
@@ -76,4 +76,4 @@ Factures.deleteFacture = id => {
     });
 };
 
-    module.exports = Facture;
+    module.exports = Factures;

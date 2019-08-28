@@ -27,15 +27,15 @@ Fournisseurs.findOneFournisseur = () => {
 Fournisseurs.newFournisseur = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
-            fournisseur.fournisseurId,
-            fournisseur.fournisseurName,
-            fournisseur.adresse,
-            fournisseur.telephone,
-            fournisseur.pays,
-            fournisseur.ville,
-            fournisseur.numCompte,
-            fournisseur.swiftCode,
-            fournisseur.ibanNum,
+            fournisseurs.fournisseurId,
+            fournisseurs.fournisseurName,
+            fournisseurs.adresse,
+            fournisseurs.telephone,
+            fournisseurs.pays,
+            fournisseurs.ville,
+            fournisseurs.numCompte,
+            fournisseurs.swiftCode,
+            fournisseurs.ibanNum,
         ];
         const query = 'INSERT INTO invoice (fournisseurId, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
         db.query(query, params, (err, res) => {
@@ -49,16 +49,15 @@ Fournisseurs.newFournisseur = () =>{
 Fournisseurs.updateFournisseur = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
-            fournisseur.fournisseurId,
-
-            fournisseur.fournisseurName,
-            fournisseur.adresse,
-            fournisseur.telephone,
-            fournisseur.pays,
-            fournisseur.ville,
-            fournisseur.numCompte,
-            fournisseur.swiftCode,
-            fournisseur.ibanNum,
+            fournisseurs.fournisseurId,
+            fournisseurs.fournisseurName,
+            fournisseurs.adresse,
+            fournisseurs.telephone,
+            fournisseurs.pays,
+            fournisseurs.ville,
+            fournisseurs.numCompte,
+            fournisseurs.swiftCode,
+            fournisseurs.ibanNum,
         ];
         'UPDATE fournisseur SET fournisseurId = ?, fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
@@ -77,4 +76,4 @@ Fournisseurs.deleteFournisseur = id => {
         });
     });
 };
-    module.exports = Fournisseur;
+    module.exports = Fournisseurs;

@@ -1,10 +1,10 @@
 const db = require ('../db/database.js')
 
 /*le requete sur la table des fournisseur*/
-let Fournisseur = {};
+let Fournisseurs = {};
 
 /* requete pour obtenir la liste complète de la table fournisseur */
-Fournisseur.findAllFournisseur =() => {
+Fournisseurs.findAllFournisseur =() => {
     return new Promise((resolve, reject) =>{
         db.query('Select * From fournisseur', (err,res)=>{
             if (err)return reject(err)
@@ -14,7 +14,7 @@ Fournisseur.findAllFournisseur =() => {
 };
 
 /* requete pour récuperer une fournisseur spécifique grâce à un id*/
-Fournisseur.findAllFournisseur = () => {
+Fournisseurs.findOneFournisseur = () => {
     return new Promise((resolve, reject)=>{
         db.query('Select * From fournisseur Where id = ?',[id],(err,res)=>{
             if (err) return reject (err)
@@ -24,7 +24,7 @@ Fournisseur.findAllFournisseur = () => {
 };
 
 /* requete pour la creation d'une fournisseur */
-Fournisseur.newFournisseur = () =>{
+Fournisseurs.newFournisseur = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
             fournisseur.fournisseurId,
@@ -46,7 +46,7 @@ Fournisseur.newFournisseur = () =>{
     };
 
     /* requete pour la modification d'un fournisseur */
-Fournisseur.updateFournisseur = () =>{
+Fournisseurs.updateFournisseur = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
             fournisseur.fournisseurId,
@@ -69,7 +69,7 @@ Fournisseur.updateFournisseur = () =>{
     };
 
 /* requete pour la suppression d'une fournisseur*/
-Fournisseur.deleteFournisseur = id => {
+Fournisseurs.deleteFournisseur = id => {
     return new Promise ((resolve, reject) => {
         db.query('DELETE FROM fournisseur WHERE id = ?', [id], (err,res) => {
             if (err) return reject(err);

@@ -1,10 +1,10 @@
 const db = require ('../db/database.js')
 
 /*les requetes sur la table des factures*/
-let Facture = {};
+let Factures = {};
 
 /* requete pour la creation d'une facture */
-Facture.newFacture = () =>{
+Factures.newFacture = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
             facture.factureId,
@@ -26,7 +26,7 @@ Facture.newFacture = () =>{
     };
 
     /* requete pour obtenir la liste complète de la table facture */
-Facture.findAllFacture =() => {
+Factures.findAllFacture =() => {
     return new Promise((resolve, reject) =>{
         db.query('Select * From facture', (err,res)=>{
             if (err)return reject(err)
@@ -36,7 +36,7 @@ Facture.findAllFacture =() => {
 };
 
 /* requete pour récuperer une facture spécifique grâce à un id*/
-Facture.findAllFacture = () => {
+Factures.findAllFacture = () => {
     return new Promise((resolve, reject)=>{
         db.query('Select * From facture Where id = ?',[id],(err,res)=>{
             if (err) return reject (err)
@@ -46,7 +46,7 @@ Facture.findAllFacture = () => {
 };
 
 /* requete pour la modification d'une facture */
-Facture.updateFacture = () =>{
+Factures.updateFacture = () =>{
     return new Promise((resolve, reject) =>{
         const params = [
             facture.factureId,
@@ -67,7 +67,7 @@ Facture.updateFacture = () =>{
     };
 
 /* requete pour la suppression d'une facture*/
-Facture.deleteFacture = id => {
+Factures.deleteFacture = id => {
     return new Promise ((resolve, reject) => {
         db.query('DELETE FROM facture WHERE id = ?', [id], (err,res) => {
             if (err) return reject(err);

@@ -26,7 +26,7 @@ Factures.newFacture = () =>{
     };
 
     /* requete pour obtenir la liste complète de la table facture */
-Factures.findAllFacture =() => {
+Factures.findAllFactures =() => {
     return new Promise((resolve, reject) =>{
         db.query('Select * From facture', (err,res)=>{
             if (err)return reject(err)
@@ -36,7 +36,7 @@ Factures.findAllFacture =() => {
 };
 
 /* requete pour récuperer une facture spécifique grâce à un id*/
-Factures.findAllFacture = () => {
+Factures.findOneFacture = () => {
     return new Promise((resolve, reject)=>{
         db.query('Select * From facture Where id = ?',[id],(err,res)=>{
             if (err) return reject (err)

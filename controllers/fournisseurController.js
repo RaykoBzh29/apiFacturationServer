@@ -1,12 +1,12 @@
 const db = require('../db/database.js')
 
-/*le requete sur la table des fournisseur*/
+/*la requete sur la table des fournisseur*/
 let Fournisseurs = {};
 
 /* requete pour obtenir la liste complète de la table fournisseur */
-Fournisseurs.findAllFournisseur = () => {
+Fournisseurs.findOneFournisseur = fournisseurid => {
     return new Promise((resolve, reject) => {
-        db.query('Select * From fournisseur', (err, res) => {
+        db.query('Select * From fournisseur Where fournisseurId = ?', [fournisseurid], (err, res) => {
             if (err) return reject(err)
             return resolve(res)
         });
@@ -46,10 +46,9 @@ Fournisseurs.newFournisseur = () => {
 };
 
 /* requete pour la modification d'un fournisseur */
-Fournisseurs.updateFournisseur = () => {
+Fournisseurs.updateFournisseur = (fournisseurs, fournisseurId) => {
     return new Promise((resolve, reject) => {
         const params = [
-            fournisseurs.fournisseurId,
             fournisseurs.fournisseurName,
             fournisseurs.adresse,
             fournisseurs.telephone,
@@ -58,8 +57,9 @@ Fournisseurs.updateFournisseur = () => {
             fournisseurs.numCompte,
             fournisseurs.swiftCode,
             fournisseurs.ibanNum,
+            fournisseurId,
         ];
-        'UPDATE fournisseur SET fournisseurId = ?, fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE id = ?';
+        'UPDATE fournisseur SET fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE fournisseurId = ?';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);

@@ -8,7 +8,7 @@ const Fournisseur = require('../controllers/fournisseurController.js');
 /*route qui permet la lecture de tout les fournisseur dans la base de donnée*/
 fournisseurRouter.get('/', async (req, res) => {
   try {
-    let result = await Fournisseur.findAllFournisseur();
+    let result = await Fournisseur.findAllFournisseurs();
     res.json(result);
   } catch (err) {
     console.log(err);
@@ -44,7 +44,7 @@ fournisseurRouter.post('/', async (req, res) => {
 fournisseurRouter.put('/:id', async (req, res) => {
   try {
     const fournisseur = req.body;
-    let result = await Fournisseur.updateFournisseur(fournisseur, req.params.id);
+    let result = await Fournisseur.updateFournisseur (fournisseur, req.params.id);
     res.json(result);
   } catch (err) {
     console.log(err);

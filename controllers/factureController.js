@@ -1,11 +1,11 @@
-const db = require ('../db/database.js')
+const db = require('../db/database.js')
 
 /*les requetes sur la table des factures*/
 let Factures = {};
 
 /* requete pour la creation d'une facture */
-Factures.newFacture = () =>{
-    return new Promise((resolve, reject) =>{
+Factures.newFacture = () => {
+    return new Promise((resolve, reject) => {
         const params = [
             factures.factureId,
             factures.factureNum,
@@ -19,35 +19,35 @@ Factures.newFacture = () =>{
         ];
         const query = 'INSERT INTO facture (factureId, factureNum, date, commandeNum, prixHt, taxe, etat, fournisseurId,) VALUES (?, ?, ?, ?, ?, ?, ?, ?,)';
         db.query(query, params, (err, res) => {
-          if (err) return reject(err);
-          resolve(res);
+            if (err) return reject(err);
+            resolve(res);
         });
-      });
-    };
+    });
+};
 
-    /* requete pour obtenir la liste complète de la table facture */
-Factures.findAllFactures =() => {
-    return new Promise((resolve, reject) =>{
-        db.query('Select * From facture', (err,res)=>{
-            if (err)return reject(err)
+/* requete pour obtenir la liste complète de la table facture */
+Factures.findAllFactures = () => {
+    return new Promise((resolve, reject) => {
+        db.query('Select * From facture', (err, res) => {
+            if (err) return reject(err)
             return resolve(res)
         });
     });
 };
 
 /* requete pour récuperer une facture spécifique grâce à un id*/
-Factures.findOneFacture = id => {
-    return new Promise((resolve, reject)=>{
-        db.query('Select * From facture Where id = ?',[id],(err,res)=>{
-            if (err) return reject (err)
+Factures.findOneFacture = factureid => {
+    return new Promise((resolve, reject) => {
+        db.query('Select * From facture Where id = ?', [id], (err, res) => {
+            if (err) return reject(err)
             return resolve(res)
         });
     });
 };
 
 /* requete pour la modification d'une facture */
-Factures.updateFacture = () =>{
-    return new Promise((resolve, reject) =>{
+Factures.updateFacture = () => {
+    return new Promise((resolve, reject) => {
         const params = [
             factures.factureId,
             factures.factureNum,
@@ -60,20 +60,20 @@ Factures.updateFacture = () =>{
         ];
         'UPDATE facture SET factureId = ?, factureNum = ?, date = ?, commandeNum = ?, prixHt = ?, taxe = ?, etat = ?, fournisseurId = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
-          if (err) return reject(err);
-          resolve(res);
-        });
-      });
-    };
-
-/* requete pour la suppression d'une facture*/
-Factures.deleteFacture = id => {
-    return new Promise ((resolve, reject) => {
-        db.query('DELETE FROM facture WHERE id = ?', [id], (err,res) => {
             if (err) return reject(err);
             resolve(res);
         });
     });
 };
 
-    module.exports = Factures;
+/* requete pour la suppression d'une facture*/
+Factures.deleteFacture = id => {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM facture WHERE id = ?', [id], (err, res) => {
+            if (err) return reject(err);
+            resolve(res);
+        });
+    });
+};
+
+module.exports = Factures;

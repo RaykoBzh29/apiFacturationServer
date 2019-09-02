@@ -18,7 +18,7 @@ fournisseurRouter.get('/', async (req, res) => {
 
 
 /*route qui permet la lecture d'une fournisseur dans la base de donnée*/
-  fournisseurRouter.get('/:id', async (req, res) => {
+  fournisseurRouter.get('/:fournisseurid', async (req, res) => {
     try {
       let result = await Fournisseur.findOneFournisseur(req.params.id);
       res.json(result);

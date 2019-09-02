@@ -67,9 +67,9 @@ Factures.updateFacture = () => {
 };
 
 /* requete pour la suppression d'une facture*/
-Factures.deleteFacture = id => {
+Factures.deleteFacture = factureid => {
     return new Promise((resolve, reject) => {
-        db.query('DELETE FROM facture WHERE id = ?', [id], (err, res) => {
+        db.query('DELETE FROM facture WHERE factureId = ?', [factureid], (err, res) => {
             if (err) return reject(err);
             resolve(res);
         });

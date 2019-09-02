@@ -16,7 +16,7 @@ Fournisseurs.findAllFournisseur = () => {
 /* requete pour récuperer une fournisseur spécifique grâce à un id*/
 Fournisseurs.findOneFournisseur = fournisseurid => {
     return new Promise((resolve, reject) => {
-        db.query('Select * From fournisseur Where id = ?', [fournisseurid], (err, res) => {
+        db.query('Select * From fournisseur Where fournisseurid = ?', [fournisseurid], (err, res) => {
             if (err) return reject(err)
             return resolve(res)
         });

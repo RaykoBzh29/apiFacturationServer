@@ -38,7 +38,7 @@ Factures.findAllFactures = () => {
 /* requete pour récuperer une facture spécifique grâce à un id*/
 Factures.findOneFacture = factureid => {
     return new Promise((resolve, reject) => {
-        db.query('Select * From facture Where id = ?', [factureid], (err, res) => {
+        db.query('Select * From facture Where factureid = ?', [factureid], (err, res) => {
             if (err) return reject(err)
             return resolve(res)
         });

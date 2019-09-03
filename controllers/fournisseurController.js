@@ -4,9 +4,9 @@ const db = require('../db/database.js')
 let Fournisseurs = {};
 
 /* requete pour obtenir la liste complète de la table fournisseur */
-Fournisseurs.findOneFournisseur = fournisseurid => {
+Fournisseurs.findAllFournisseurs = () => {
     return new Promise((resolve, reject) => {
-        db.query('Select * From fournisseur Where fournisseurId = ?', [fournisseurid], (err, res) => {
+        db.query('Select * From fournisseur', (err, res) => {
             if (err) return reject(err)
             return resolve(res)
         });

@@ -20,9 +20,9 @@ const factureRouter = require('./routes/factureRoute.js');
 app.use('/facturation/', accueilRouter);
 
 /* création de la  route d'accès aux fournisseur */
-app.use('/fournisseurs/', fournisseurRouter);
+app.use('/facturation/fournisseurs/', fournisseurRouter);
 
 /* création de la  route d'accès aux factures */
-app.use('/factures/', factureRouter);
+app.use('/facturation/factures/', factureRouter);
 
 module.exports = app;

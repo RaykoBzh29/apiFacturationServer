@@ -12,7 +12,6 @@ Fournisseurs.findOneFournisseur = fournisseurid => {
         });
     });
 };
-
 /* requete pour récuperer une fournisseur spécifique grâce à un id*/
 Fournisseurs.findOneFournisseur = fournisseurid => {
     return new Promise((resolve, reject) => {
@@ -22,7 +21,6 @@ Fournisseurs.findOneFournisseur = fournisseurid => {
         });
     });
 };
-
 /* requete pour la creation d'une fournisseur */
 Fournisseurs.newFournisseur = () => {
     return new Promise((resolve, reject) => {
@@ -44,7 +42,6 @@ Fournisseurs.newFournisseur = () => {
         });
     });
 };
-
 /* requete pour la modification d'un fournisseur */
 Fournisseurs.updateFournisseur = (fournisseurs, fournisseurId) => {
     return new Promise((resolve, reject) => {
@@ -66,7 +63,6 @@ Fournisseurs.updateFournisseur = (fournisseurs, fournisseurId) => {
         });
     });
 };
-
 /* requete pour la suppression d'une fournisseur*/
 Fournisseurs.deleteFournisseur = fournisseurid => {
     return new Promise((resolve, reject) => {

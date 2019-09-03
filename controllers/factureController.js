@@ -7,7 +7,6 @@ let Factures = {};
 Factures.newFacture = () => {
     return new Promise((resolve, reject) => {
         const params = [
-            factures.factureId,
             factures.factureNum,
             factures.date,
             factures.commandeNum,
@@ -16,8 +15,9 @@ Factures.newFacture = () => {
             factures.taxe,
             factures.prixTtc,
             factures.etat,
+            factureId,
         ];
-        const query = 'INSERT INTO facture (factureId, factureNum, date, commandeNum, prixHt, taxe, etat, fournisseurId,) VALUES (?, ?, ?, ?, ?, ?, ?, ?,)';
+        const query = 'INSERT INTO facture (factureNum, date, commandeNum, prixHt, taxe, etat, fournisseurId,) VALUES (?, ?, ?, ?, ?, ?, ?, ?,)';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);
@@ -49,7 +49,6 @@ Factures.findOneFacture = factureid => {
 Factures.updateFacture = () => {
     return new Promise((resolve, reject) => {
         const params = [
-            factures.factureId,
             factures.factureNum,
             factures.date,
             factures.commandeNum,
@@ -57,8 +56,9 @@ Factures.updateFacture = () => {
             factures.taxe,
             factures.etat,
             factures.fournisseurId,
+            factureId,
         ];
-        'UPDATE facture SET factureId = ?, factureNum = ?, date = ?, commandeNum = ?, prixHt = ?, taxe = ?, etat = ?, fournisseurId = ? WHERE id = ?';
+        'UPDATE facture SET factureNum = ?, date = ?, commandeNum = ?, prixHt = ?, taxe = ?, etat = ?, fournisseurId = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);

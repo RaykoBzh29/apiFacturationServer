@@ -10,7 +10,7 @@
     "mysql": "^2.17.1"
   },
   "scripts": {
-    "server": "npx nodemon server.js -w server",
+    "serve": "npx nodemon server.js -w server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexandre POIREL",

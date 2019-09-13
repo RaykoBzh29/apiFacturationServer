@@ -10,14 +10,12 @@ Factures.newFacture = () => {
             factures.factureNum,
             factures.date,
             factures.commandeNum,
-            factures.fournisseurId,
             factures.prixHt,
             factures.taxe,
-            factures.prixTtc,
             factures.etat,
-            factureId,
+            factures.fournisseurId,
         ];
-        const query = 'INSERT INTO facture (factureNum, date, commandeNum, prixHt, taxe, etat, fournisseurId,) VALUES (?, ?, ?, ?, ?, ?, ?, ?,)';
+        const query = 'INSERT INTO facture (factureNum, date, commandeNum, prixHt, taxe, etat, fournisseurId,) VALUES (?, ?, ?, ?, ?, ?, ?,)';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);

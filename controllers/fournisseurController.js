@@ -22,18 +22,18 @@ Fournisseurs.findOneFournisseur = id => {
     });
 };
 /* requete pour la creation d'une fournisseur */
-Fournisseurs.newFournisseur = () => {
+Fournisseurs.newFournisseur = fournisseur => {
     return new Promise((resolve, reject) => {
         const params = [
-            fournisseurs.id,
-            fournisseurs.fournisseurName,
-            fournisseurs.adresse,
-            fournisseurs.telephone,
-            fournisseurs.pays,
-            fournisseurs.ville,
-            fournisseurs.numCompte,
-            fournisseurs.swiftCode,
-            fournisseurs.ibanNum,
+            fournisseur.id,
+            fournisseur.fournisseurName,
+            fournisseur.adresse,
+            fournisseur.telephone,
+            fournisseur.pays,
+            fournisseur.ville,
+            fournisseur.numCompte,
+            fournisseur.swiftCode,
+            fournisseur.ibanNum,
         ];
         const query = 'INSERT INTO invoice (id, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
         db.query(query, params, (err, res) => {

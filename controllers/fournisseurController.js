@@ -13,9 +13,9 @@ Fournisseurs.findAllFournisseurs = () => {
     });
 };
 /* requete pour récuperer une fournisseur spécifique grâce à un id*/
-Fournisseurs.findOneFournisseur = fournisseurid => {
+Fournisseurs.findOneFournisseur = id => {
     return new Promise((resolve, reject) => {
-        db.query('Select * From fournisseur Where fournisseurId = ?', [fournisseurid], (err, res) => {
+        db.query('Select * From fournisseur Where id = ?', [id], (err, res) => {
             if (err) return reject(err)
             return resolve(res)
         });
@@ -25,7 +25,7 @@ Fournisseurs.findOneFournisseur = fournisseurid => {
 Fournisseurs.newFournisseur = () => {
     return new Promise((resolve, reject) => {
         const params = [
-            fournisseurs.fournisseurId,
+            fournisseurs.id,
             fournisseurs.fournisseurName,
             fournisseurs.adresse,
             fournisseurs.telephone,
@@ -35,7 +35,7 @@ Fournisseurs.newFournisseur = () => {
             fournisseurs.swiftCode,
             fournisseurs.ibanNum,
         ];
-        const query = 'INSERT INTO invoice (fournisseurId, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO invoice (id, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);
@@ -43,7 +43,7 @@ Fournisseurs.newFournisseur = () => {
     });
 };
 /* requete pour la modification d'un fournisseur */
-Fournisseurs.updateFournisseur = (fournisseurs, fournisseurId) => {
+Fournisseurs.updateFournisseur = (fournisseurs, id) => {
     return new Promise((resolve, reject) => {
         const params = [
             fournisseurs.fournisseurName,
@@ -54,9 +54,9 @@ Fournisseurs.updateFournisseur = (fournisseurs, fournisseurId) => {
             fournisseurs.numCompte,
             fournisseurs.swiftCode,
             fournisseurs.ibanNum,
-            fournisseurId,
+            id,
         ];
-        'UPDATE fournisseur SET fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE fournisseurId = ?';
+        'UPDATE fournisseur SET fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE id = ?';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);
@@ -64,9 +64,9 @@ Fournisseurs.updateFournisseur = (fournisseurs, fournisseurId) => {
     });
 };
 /* requete pour la suppression d'une fournisseur*/
-Fournisseurs.deleteFournisseur = fournisseurid => {
+Fournisseurs.deleteFournisseur = id => {
     return new Promise((resolve, reject) => {
-        db.query('DELETE FROM fournisseur WHERE fournisseurId = ?', [fournisseurid], (err, res) => {
+        db.query('DELETE FROM fournisseur WHERE id = ?', [id], (err, res) => {
             if (err) return reject(err);
             resolve(res);
         });

@@ -35,7 +35,7 @@ Fournisseurs.newFournisseur = fournisseur => {
             fournisseur.swiftCode,
             fournisseur.ibanNum,
         ];
-        const query = 'INSERT INTO invoice (id, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO fournisseur (id, fournisseurName, adresse , telephone, pays, ville, numCompte, swiftCode, ibanNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
         db.query(query, params, (err, res) => {
             if (err) return reject(err);
             resolve(res);

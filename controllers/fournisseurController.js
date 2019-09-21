@@ -43,17 +43,17 @@ Fournisseurs.newFournisseur = fournisseur => {
     });
 };
 /* requete pour la modification d'un fournisseur */
-Fournisseurs.updateFournisseur = (fournisseurs, id) => {
+Fournisseurs.updateFournisseur = (fournisseur, id) => {
     return new Promise((resolve, reject) => {
         const params = [
-            fournisseurs.fournisseurName,
-            fournisseurs.adresse,
-            fournisseurs.telephone,
-            fournisseurs.pays,
-            fournisseurs.ville,
-            fournisseurs.numCompte,
-            fournisseurs.swiftCode,
-            fournisseurs.ibanNum,
+            fournisseur.fournisseurName,
+            fournisseur.adresse,
+            fournisseur.telephone,
+            fournisseur.pays,
+            fournisseur.ville,
+            fournisseur.numCompte,
+            fournisseur.swiftCode,
+            fournisseur.ibanNum,
             id,
         ];
         'UPDATE fournisseur SET fournisseurName = ?, adresse = ?, telephone = ?, pays = ?, ville = ?, numCompte = ?, swiftCode = ?, ibanNum = ? WHERE id = ?';

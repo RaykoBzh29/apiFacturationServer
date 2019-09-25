@@ -44,7 +44,7 @@ fournisseurRouter.post('/', async (req, res) => {
 fournisseurRouter.put('/:id', async (req, res) => {
   try {
     const fournisseur = req.body;
-    let result = await Fournisseur.editSupplier(fournisseur, req.params.id);
+    let result = await Fournisseur.editFournisseur(fournisseur, req.params.id);
     res.json(result);
   } catch (err) {
     console.log(err);

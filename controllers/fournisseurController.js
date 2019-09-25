@@ -43,7 +43,7 @@ Fournisseurs.newFournisseur = fournisseur => {
     });
 };
 /* requete pour la modification d'un fournisseur */
-Fournisseurs.editFournisseur = (fournisseur, id) => {
+Fournisseurs.editSupplier = (fournisseur, id) => {
     return new Promise((resolve, reject) => {
         const params = [
             fournisseur.fournisseurName,

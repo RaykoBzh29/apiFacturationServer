@@ -41,7 +41,7 @@ fournisseurRouter.post('/', async (req, res) => {
 });
 
 /*route qui permet la mise à jour d'une fournisseur dans la basse de donnée */
-fournisseurRouter.put('/:id', async (req, res) => {
+fournisseurRouter.post('/:id', async (req, res) => {
   try {
     const fournisseur = req.body;
     let result = await Fournisseur.editFournisseur(fournisseur, req.params.id);

@@ -9,7 +9,7 @@ app.use(cors());
 
 /* utilisation de bodyParser pour le traitement des requêtes */
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Importations des differentes routes de l'api */
 const accueilRouter = require('./routes/accueil.js');
@@ -20,9 +20,9 @@ const factureRouter = require('./routes/factureRoute.js');
 app.use('/facturation/', accueilRouter);
 
 /* création de la  route d'accès aux fournisseur */
-app.use('/facturation/fournisseurs/', fournisseurRouter);
+app.use('/facturation/fournisseurs', fournisseurRouter);
 
 /* création de la  route d'accès aux factures */
-app.use('/facturation/factures/', factureRouter);
+app.use('/facturation/factures', factureRouter);
 
 module.exports = app;
